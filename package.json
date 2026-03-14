@@ -1,0 +1,31 @@
+{
+  "name": "county-friendship-platform",
+  "version": "1.0.0",
+  "description": "县域交友平台 - 基于地理位置的AI智能匹配系统",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:user\" \"npm run dev:match\" \"npm run dev:chat\"",
+    "dev:user": "cd backend/user-service && npm run dev",
+    "dev:match": "cd backend/match-service && npm run dev",
+    "dev:chat": "cd backend/chat-service && npm run dev",
+    "setup": "docker-compose up -d",
+    "stop": "docker-compose down",
+    "test": "npm run test:api && npm run test:ai",
+    "test:api": "node scripts/api-test.js",
+    "test:ai": "node scripts/ai-test.js",
+    "seed": "node scripts/test-data.js"
+  },
+  "keywords": [
+    "dating",
+    "friendship",
+    "county",
+    "geolocation",
+    "ai",
+    "matching"
+  ],
+  "author": "TTunn Assistant",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
